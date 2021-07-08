@@ -6,6 +6,8 @@ defmodule Snack.Meal do
 
   @fields [:descricao, :data, :calorias]
 
+  @derive {Jason.Encoder, only: [:id, :data, :calorias,:descricao]}
+
   schema "meals" do
 
     field :descricao, :string
@@ -19,6 +21,9 @@ defmodule Snack.Meal do
     %__MODULE__{}
     |> cast(params, @fields)
     |> validate_required(@fields)
-
   end
+
+
+
+
 end
