@@ -11,4 +11,5 @@ defmodule SnackWeb.MealView do
     }
   end
 
+  def render("meals.json", %{snack: %Meal{} = snack}), do: %{snack: snack}
 end

@@ -17,13 +17,11 @@ defmodule Snack.Meal do
     timestamps()
   end
 
-  def changeset(params) do
-    %__MODULE__{}
+  def changeset(struct \\ %__MODULE__{}, params) do
+    struct
     |> cast(params, @fields)
     |> validate_required(@fields)
   end
-
-
 
 
 end
