@@ -1,5 +1,5 @@
 defmodule Snack.Factory do
-  use ExMachina.Ecto
+  use ExMachina.Ecto, repo: Snack.Repo
 
   def meals_params_factory do
     %{
