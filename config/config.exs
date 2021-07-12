@@ -10,8 +10,9 @@ use Mix.Config
 config :snack,
   ecto_repos: [Snack.Repo]
 
-config :snack, Snack.Repo, migration_primary_key: [type: :binary_id]
-config :snack, Snack.Repo, migration_foreign_key: [type: :binary_id]
+config :snack, Snack.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
 
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 # Configures the endpoint
