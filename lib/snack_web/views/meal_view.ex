@@ -1,5 +1,4 @@
 defmodule SnackWeb.MealView do
-
   use SnackWeb, :view
 
   alias Snack.Meal

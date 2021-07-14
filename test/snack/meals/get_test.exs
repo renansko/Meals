@@ -1,28 +1,29 @@
-defmodule Snack.Meals.DeleteTest do
+defmodule Snack.Meals.GetTest do
   use Snack.DataCase, async: true
 
   import Snack.Factory
 
-  alias Snack.Meals.{Delete, Create}
+  alias Snack.Meals.{Get, Create}
   alias Snack.{Meal, Error}
+  alias Ecto.Changeset
 
-  describe "delete/1" do
-    test "When id is valid delete de meal" do
+  describe "by_id/1" do
+    test "When id is valid return a meal" do
       params = build(:meals_params)
 
       {_ok, meal} = Create.call(params)
 
-      response = Delete.call(meal.id)
+      response = Get.by_id(meal.id)
 
       assert {:ok, %Meal{id: _id, calorias: "120kCal"}} = response
     end
 
-    test "When there are invalid id, return a error" do
+    test "When are invalid ID return an error" do
       params = build(:meals_params)
 
-      {:ok, meal} = Create.call(params)
+      {_ok, meal} = Create.call(params)
 
-      response = Delete.call("153adc6b-9ae1-454c-93fb-4d249b38e853")
+      response = Get.by_id("153adc6b-9ae1-454c-93fb-4d249b38e851")
 
       assert {:error, %Snack.Error{result: "Meal not found", status: :not_found}} = response
     end

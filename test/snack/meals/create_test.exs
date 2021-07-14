@@ -6,8 +6,6 @@ defmodule Snack.Meals.CreateTest do
   alias Snack.Meals.Create
   alias Snack.{Meal, Error}
 
-  alias Ecto.Changeset
-
   describe "call/1" do
     test "When all params are valid return a Meal" do
       params = build(:meals_params)

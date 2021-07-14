@@ -12,7 +12,6 @@
 
 #       expected_response = "banana"
 
-
 #     end
 #   end
 

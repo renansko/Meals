@@ -7,12 +7,19 @@ defmodule Snack.MealTest do
 
   describe "changeset/1" do
     test "When all, params are valid return a Changeset" do
-
       params = build(:meals_params)
 
       response = Meal.changeset(params)
 
       assert %Changeset{changes: %{data: ~U[2018-11-15 10:00:00Z]}, valid?: true} = response
+    end
+
+    test "When are invalid params return an error" do
+      params = build(:meals_params, calorias: "")
+
+      response = Meal.changeset(params)
+
+      assert %Changeset{changes: %{data: ~U[2018-11-15 10:00:00Z]}, valid?: false} = response
     end
   end
 end
