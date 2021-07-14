@@ -1,15 +1,15 @@
-defmodule Snack.Meals.Create do
+defmodule Snack.Users.Create do
 
-  alias Snack.{Meal,Repo,Error}
+  alias Snack.{User,Repo, Error}
 
   def call(params) do
     params
-    |> Meal.changeset()
+    |> User.changeset()
     |> Repo.insert()
     |> handle_insert()
   end
 
-  defp handle_insert({:ok, %Meal{}} = result), do: result
+  defp handle_insert({:ok, %User{}} = result), do: result
 
   defp handle_insert({:error, result}) do
     {:error, Error.build(:bad_request, result)}

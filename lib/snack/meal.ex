@@ -2,7 +2,10 @@ defmodule Snack.Meal do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Snack.User
+
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key :binary_id
 
   @fields [:descricao, :data, :calorias]
 
@@ -14,6 +17,7 @@ defmodule Snack.Meal do
     field :data, :utc_datetime
     field :calorias, :string
 
+    belongs_to :users, User
     timestamps()
   end
 
