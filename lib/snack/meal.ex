@@ -5,9 +5,10 @@ defmodule Snack.Meal do
   alias Snack.User
 
   @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key :binary_id
 
-  @fields [:descricao, :data, :calorias]
+  @foreign_key_type :binary_id
+
+  @fields [:descricao, :data, :calorias, :user_id]
 
   @derive {Jason.Encoder, only: [:id, :data, :calorias,:descricao]}
 
@@ -17,7 +18,8 @@ defmodule Snack.Meal do
     field :data, :utc_datetime
     field :calorias, :string
 
-    belongs_to :users, User
+
+    belongs_to :user, User
     timestamps()
   end
 

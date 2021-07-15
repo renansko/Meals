@@ -6,7 +6,7 @@ defmodule Snack.Repo.Migrations.CreateMealsTable do
       add :descricao, :string
       add :data, :utc_datetime
       add :calorias, :string
-      add :user_id, references(:users)
+      add :user_id, references(:users, type: :binary_id)
 
       timestamps()
     end

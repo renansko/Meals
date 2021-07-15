@@ -5,7 +5,7 @@ defmodule Snack.User do
   alias Snack.Meal
 
   @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key_type :binary_id
+
 
   @fields [:name, :cpf, :email]
 
@@ -22,8 +22,8 @@ defmodule Snack.User do
     has_many :meals, Meal
   end
 
-  def changeset(params)do
-    %__MODULE__{}
+  def changeset(struct \\ %__MODULE__{}, params)do
+    struct
     |> cast(params, @fields)
     |> validate_required(@fields)
     |> validate_length(:cpf, min: 11)

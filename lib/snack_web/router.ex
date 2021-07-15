@@ -18,7 +18,8 @@ defmodule SnackWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/meals", MealController, except: [:new, :edit]
+    resources "/meal", MealController, except: [:new, :edit]
+    resources "/user", UserController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.

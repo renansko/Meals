@@ -7,8 +7,8 @@ defmodule Snack.Meals.Update do
        meal -> update_meal(meal, params)
     end
   end
-  defp update_meal(user, params) do
-    user
+  defp update_meal(meal, params) do
+    meal
     |> Meal.changeset(params)
     |> Repo.update()
   end
